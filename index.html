@@ -1,0 +1,100 @@
+<!--
+Copyright (c) ZIMT AG - All Rights Reserved 2020
+Unauthorized copying of this file, via any medium is strictly prohibited
+Proprietary and confidential
+Contact: tech@zimt.co
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta id="viewport" name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <!-- Tittle -->
+  <title>Viewer - ZIMT</title>
+
+  <!--SEO-->
+  <meta class="mtitle" name="pagename" content="Viewer - ZIMT" />
+  <meta class="mdesc" name="description" content="Viewer - ZIMT" />
+  <meta class="mkey" name="keywords" content="app" />
+  <!--Open Graph-->
+  <meta class="mtitle" property="og:title" content="Viewer - ZIMT" />
+  <meta class="mdesc" property="og:description" content="Viewer - ZIMT" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="noimageindex" />
+  <meta name="robots" content="follow" />
+  <meta name="robots" content="noodp" />
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="favicons/site.webmanifest">
+  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- JS -->
+  <script src="https://unpkg.com/@zimt/sdk@1.12.1/umd/zimt-hub-sdk.production.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/services.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</head>
+
+<body>
+
+  <div id="root">
+
+    <header>
+      <div class="wrapper">
+        <img src="assets/svg/logo.svg" alt="logo" class="logo">
+      </div>
+    </header>
+
+    <main>
+
+      <form onsubmit="onSubmit(event)" class="form">
+        <div class="wrapper">
+          <input type="text" id="input" placeholder="Asset ID" name="asset_id" onchange="onChange(event)">
+          <button type="submit" id="button">Search</button>
+        </div>
+        <p id="error"></p>
+      </form>
+
+      <div id="asset" style="display: none;"></div>
+
+    </main>
+
+    <footer>
+      <div class="wrapper">
+        <a class="copyright" href="https://zi.mt" target="_blank">
+          <span>Powered by</span>
+          <img src="assets/svg/logo.svg" alt="logo" class="logo">
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
