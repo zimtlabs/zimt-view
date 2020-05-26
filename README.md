@@ -9,7 +9,7 @@ Dependencies
 - Have a ZIMT account or [register](https://dash.zi.mt/auth/signup) one.
 - Use/create an API key in your dashboard organization.
 
-You can follow the [tutorial in the documentation](https://dev.zi.mt/tutorials/create-a-simple-viewer-app/getting-started) on how this app works and how to use/customize it.
+You can follow the [tutorial in the documentation](https://dev.zi.mt/tutorials/create-viewer-app/getting-started) on how this app works and how to use/customize it.
 
 ## Run
 
