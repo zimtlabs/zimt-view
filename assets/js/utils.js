@@ -78,7 +78,7 @@ const getAssetName = asset => {
 };
 
 const getDocumentURL = document => {
-   const zimt_api_key = CONFIG.api_key;
+   const zimt_token = CONFIG.token;
 
    let link = document;
 
@@ -86,7 +86,7 @@ const getDocumentURL = document => {
    if (typeof document === 'string') return document;
 
    if (document.url) link = document.url;
-   if (document.id) link = `${CONFIG.api.core}/documents/${document.id}?zimt_api_key=${zimt_api_key}`;
+   if (document.id) link = `${CONFIG.api.core}/documents/${document.id}?zimt_token=${zimt_token}`;
 
    return link;
 };

@@ -12,6 +12,7 @@ const CONFIG = {
    },
    // ENTER YOUR OWN ORGANIZATION API KEY HERE
    api_key: '',
+   token: '',
 };
 
 // Global vars
