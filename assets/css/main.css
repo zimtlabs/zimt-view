@@ -20,6 +20,7 @@ header {
    position: fixed;
    top: 0;
    left: 0;
+   z-index: 3000;
 }
 
 header>.wrapper {
@@ -113,7 +114,7 @@ main {
 
 #input {
    width: 100%;
-   border-bottom: 2px solid var(--palette-text-secondary);
+   border-bottom: 1px solid var(--palette-text-secondary);
    font: inherit;
    color: currentColor;
    height: 1.1875em;

@@ -11,7 +11,7 @@ const CONFIG = {
       core: 'https://hub.test.zi.mt',
    },
    // ENTER YOUR OWN ORGANIZATION API KEY HERE
-   api_key: '',
+   api_key: '0x103588bc4e0Ede0Eb11C9eb3eE1de13fe6892F7D',
    token: '',
 };
 

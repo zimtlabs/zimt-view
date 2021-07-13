@@ -38,13 +38,13 @@ function setError(text, show = true) {
 }
 
 function setAsset(asset, events) {
-   const info = getObject(asset);
    elements.asset.innerHTML = '';
    elements.asset.style.display = 'none';
 
-   parseEventProperties(info);
+   parseEventProperties(asset);
 
-   const images = getImages(info);
+   const images = getImages(asset);
+
    if (images && images.length) {
       const image = document.createElement('img');
       image.src = getDocumentURL(images[0]);
@@ -52,16 +52,13 @@ function setAsset(asset, events) {
       elements.asset.appendChild(image);
    }
 
-   const status = document.createElement('p');
-   status.className = 'status';
-   status.innerText = asset.verification.status;
-   elements.asset.appendChild(status);
-
    const title = document.createElement('h1');
-   title.innerText = info.data.name;
+
+   title.innerText = asset.data.name;
    elements.asset.appendChild(title);
 
-   const desc = getProperty(info, 'description');
+   const desc = getProperty(asset, 'description');
+
    if (desc) {
       const description = document.createElement('p');
       description.className = 'description';
@@ -69,19 +66,20 @@ function setAsset(asset, events) {
       elements.asset.appendChild(description);
    }
 
-   if (Object.keys(info.parsed.simple).length) {
+   if (Object.keys(asset.parsed.simple).length) {
       const properties = document.createElement('div');
       properties.className = 'properties';
 
       const subtitle = document.createElement('h3');
       subtitle.innerText = 'Properties';
-      subtitle.style.marginBottom = '35px';
+      subtitle.style.marginTop = '35px';
+      subtitle.style.marginBottom = '25px';
       properties.appendChild(subtitle);
 
-      Object.keys(info.parsed.simple).forEach(key => {
+      Object.keys(asset.parsed.simple).forEach(key => {
          const item = document.createElement('p');
          item.className = 'property';
-         item.innerHTML = `<b>${key}</b>: ${info.parsed.simple[key]}`;
+         item.innerHTML = `<b>${key}</b>: ${asset.parsed.simple[key]}`;
          properties.appendChild(item);
       });
 
@@ -102,18 +100,20 @@ function setAsset(asset, events) {
       _events.className = 'events';
       timeline.appendChild(_events);
 
-      events.response.forEach(e => {
+      events.response.forEach(_event => {
+         const data = getObjectPropertyValue(_event, 'object.data', 'data');
+
          const event = document.createElement('div');
          event.className = 'event';
 
          const eventType = document.createElement('p');
          eventType.className = 'type';
-         eventType.innerText = e.data.type;
+         eventType.innerText = data.type;
          event.appendChild(eventType);
 
          const eventTitle = document.createElement('p');
          eventTitle.className = 'title';
-         eventTitle.innerText = e.data.name;
+         eventTitle.innerText = data.name;
          event.appendChild(eventTitle);
 
          _events.appendChild(event);
@@ -137,9 +137,6 @@ async function onSubmit(event) {
          // Get the asset with info event attached
          const asset = await assetService.get(id);
          console.log('Asset: ', asset);
-
-         // Verify asset
-         await verifyObject(asset);
 
          // Get events
          const events = await eventService.search(asset.id, {});
