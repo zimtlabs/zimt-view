@@ -57,7 +57,7 @@ function setAsset(asset, events) {
    title.innerText = asset.data.name;
    elements.asset.appendChild(title);
 
-   const desc = getProperty(asset, 'description');
+   const desc = getObjectPropertyValue(asset, 'data.properties.description', 'properties.description', 'description');
 
    if (desc) {
       const description = document.createElement('p');
